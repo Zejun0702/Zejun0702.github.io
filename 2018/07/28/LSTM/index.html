@@ -79,12 +79,12 @@
 
 
 
-<meta name="description" content="Recurrent Neural Networks人类并不是每时每刻都从一片空白的大脑开始他们的思考。在你阅读这篇文章时候，你都是基于自己已经拥有的对先前所见词的理解来推断当前词的真实含义。我们不会将所有的东西都全部丢弃，然后用空白的大脑进行思考。我们的思想拥有持久性。传统的神经网络并不能做到这点，看起来也像是一种巨大的弊端。例如，假设你希望对电影中的每个时间点的时间类型进行分类。传统的神经网络应">
+<meta name="description" content="Recurrent Neural Networks人类并不是每时每刻都从一片空白的大脑开始他们的思考。在你阅读这篇文章时候，你都是基于自己已经拥有的对先前所见词的理解来推断当前词的真实含义。我们不会将所有的东西都全部丢弃，然后用空白的大脑进行思考。我们的思想拥有持久性。传统的神经网络并不能做到这点，看起来也像是一种巨大的弊端。例如，假设你希望对电影中的每个时间点的时间类型进行分类。传统的神经网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LSTM网络">
 <meta property="og:url" content="http://yoursite.com/2018/07/28/LSTM/index.html">
 <meta property="og:site_name" content="画手乔治">
-<meta property="og:description" content="Recurrent Neural Networks人类并不是每时每刻都从一片空白的大脑开始他们的思考。在你阅读这篇文章时候，你都是基于自己已经拥有的对先前所见词的理解来推断当前词的真实含义。我们不会将所有的东西都全部丢弃，然后用空白的大脑进行思考。我们的思想拥有持久性。传统的神经网络并不能做到这点，看起来也像是一种巨大的弊端。例如，假设你希望对电影中的每个时间点的时间类型进行分类。传统的神经网络应">
+<meta property="og:description" content="Recurrent Neural Networks人类并不是每时每刻都从一片空白的大脑开始他们的思考。在你阅读这篇文章时候，你都是基于自己已经拥有的对先前所见词的理解来推断当前词的真实含义。我们不会将所有的东西都全部丢弃，然后用空白的大脑进行思考。我们的思想拥有持久性。传统的神经网络并不能做到这点，看起来也像是一种巨大的弊端。例如，假设你希望对电影中的每个时间点的时间类型进行分类。传统的神经网络">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/42741-f16c8acc01d2d469.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/42741-d6749df8fb93b0b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -103,10 +103,10 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/42741-bd2f1feaea22630e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/42741-dd3d241fa44a71c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/42741-acd4c079d94803d8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-08-06T08:37:26.360Z">
+<meta property="og:updated_time" content="2018-08-06T08:39:47.250Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LSTM网络">
-<meta name="twitter:description" content="Recurrent Neural Networks人类并不是每时每刻都从一片空白的大脑开始他们的思考。在你阅读这篇文章时候，你都是基于自己已经拥有的对先前所见词的理解来推断当前词的真实含义。我们不会将所有的东西都全部丢弃，然后用空白的大脑进行思考。我们的思想拥有持久性。传统的神经网络并不能做到这点，看起来也像是一种巨大的弊端。例如，假设你希望对电影中的每个时间点的时间类型进行分类。传统的神经网络应">
+<meta name="twitter:description" content="Recurrent Neural Networks人类并不是每时每刻都从一片空白的大脑开始他们的思考。在你阅读这篇文章时候，你都是基于自己已经拥有的对先前所见词的理解来推断当前词的真实含义。我们不会将所有的东西都全部丢弃，然后用空白的大脑进行思考。我们的思想拥有持久性。传统的神经网络并不能做到这点，看起来也像是一种巨大的弊端。例如，假设你希望对电影中的每个时间点的时间类型进行分类。传统的神经网络">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/42741-f16c8acc01d2d469.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -317,7 +317,8 @@
       
 
       
-        <h1 id="Recurrent-Neural-Networks"><a href="#Recurrent-Neural-Networks" class="headerlink" title="Recurrent Neural Networks"></a>Recurrent Neural Networks</h1><p>人类并不是每时每刻都从一片空白的大脑开始他们的思考。在你阅读这篇文章时候，你都是基于自己已经拥有的对先前所见词的理解来推断当前词的真实含义。我们不会将所有的东西都全部丢弃，然后用空白的大脑进行思考。我们的思想拥有持久性。<br>传统的神经网络并不能做到这点，看起来也像是一种巨大的弊端。例如，假设你希望对电影中的每个时间点的时间类型进行分类。传统的神经网络应该很难来处理这个问题——使用电影中先前的事件推断后续的事件。<br>RNN 解决了这个问题。RNN 是包含循环的网络，允许信息的持久化。</p>
+        <hr>
+<h1 id="Recurrent-Neural-Networks"><a href="#Recurrent-Neural-Networks" class="headerlink" title="Recurrent Neural Networks"></a>Recurrent Neural Networks</h1><p>人类并不是每时每刻都从一片空白的大脑开始他们的思考。在你阅读这篇文章时候，你都是基于自己已经拥有的对先前所见词的理解来推断当前词的真实含义。我们不会将所有的东西都全部丢弃，然后用空白的大脑进行思考。我们的思想拥有持久性。<br>传统的神经网络并不能做到这点，看起来也像是一种巨大的弊端。例如，假设你希望对电影中的每个时间点的时间类型进行分类。传统的神经网络应该很难来处理这个问题——使用电影中先前的事件推断后续的事件。<br>RNN 解决了这个问题。RNN 是包含循环的网络，允许信息的持久化。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/42741-f16c8acc01d2d469.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>RNN 包含循环</p>
 <p>在上面的示例图中，神经网络的模块，A，正在读取某个输入 x_i，并输出一个值 h_i。循环可以使得信息可以从当前步传递到下一步。<br>这些循环使得 RNN 看起来非常神秘。然而，如果你仔细想想，这样也不比一个正常的神经网络难于理解。RNN 可以被看做是同一神经网络的多次复制，每个神经网络模块会把消息传递给下一个。所以，如果我们将这个循环展开：</p>
