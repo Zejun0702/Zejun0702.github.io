@@ -134,7 +134,7 @@ table {
   border-collapse: collapse;
 }
 table thead {
-  background: rgba(153,169,191,0.1);
+  background: rgba(133,133,133,0.1);
 }
 table th,
 table td {
@@ -240,6 +240,8 @@ table td {
   color: #90a4ae;
   font-size: 14px;
   line-height: 20px;
+  counter-reset: line;
+  white-space: pre-wrap;
 }
 figure.highlight {
   position: relative;
@@ -288,6 +290,15 @@ blockquote {
 .article-container .highlight .line::selection {
   background: rgba(128,203,196,0.251);
   color: #90a4ae;
+}
+.article-container .highlight .line:before {
+  display: inline-block;
+  padding: 0 0.3rem 0 0;
+  min-width: 1.6rem;
+  color: #cfd8dc;
+  content: counter(line);
+  counter-increment: line;
+  text-align: left;
 }
 .article-container .highlight table {
   position: relative;
@@ -988,7 +999,7 @@ footer {
 .article-sort-item__time {
   position: absolute;
   top: 0.1rem;
-  color: #99a9bf;
+  color: #858585;
 }
 .article-sort-item__title {
   display: block;
@@ -1012,7 +1023,7 @@ footer {
 }
 .category-list .category-list-count {
   margin-left: 0.4rem;
-  color: #99a9bf;
+  color: #858585;
 }
 .category-list .category-list-count:before {
   content: "(";
@@ -1133,7 +1144,7 @@ footer {
   cursor: pointer;
 }
 #pagination .space {
-  color: #99a9bf;
+  color: #858585;
 }
 #pagination .page-number {
   display: inline-block;
@@ -1456,7 +1467,7 @@ footer {
   line-height: 0.3rem;
 }
 a {
-  color: #99a9bf;
+  color: #858585;
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   -o-transition: all 0.2s;
@@ -1685,7 +1696,7 @@ img:hover {
   font-size: 0.8rem;
 }
 #sidebar .author-info__description {
-  color: #99a9bf;
+  color: #858585;
 }
 #sidebar .author-info-articles {
   padding: 0.2rem 0;

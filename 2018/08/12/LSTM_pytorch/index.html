@@ -1,0 +1,57 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content=""><meta name="keywords" content=""><meta name="author" content="George,undefined"><meta name="copyright" content="George"><title>会敲几行代码的灵魂画手 | 画手乔治</title><link rel="shortcut icon" href="/my-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.5.6"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css?version=1.5.6"><link rel="dns-prefetch" href="https://cdn.staticfile.org"><link rel="dns-prefetch" href="https://cdn.bootcss.com"><link rel="dns-prefetch" href="https://creativecommons.org"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">George</div><div class="author-info__description text-center"></div><div class="follow-button"><a href="https://github.com/Zejun0702">Follow Me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">8</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://typecho2-1252629492.cos.na-siliconvalley.myqcloud.com/background.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">画手乔治</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span></div><div id="post-info"><div id="post-title">无题</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2018-08-12</time></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><p><em>class</em><code>torch.nn.`</code>LSTM`(<em>*args</em>, <em>**kwargs</em>)<a href="https://pytorch.org/docs/stable/_modules/torch/nn/modules/rnn.html#LSTM" target="_blank" rel="noopener">[source]</a><a href="https://pytorch.org/docs/stable/nn.html?highlight=lstm#torch.nn.LSTM" title="Permalink to this definition" target="_blank" rel="noopener"></a></p>
+<p>Applies a multi-layer long short-term memory (LSTM) RNN to an input sequence.</p>
+<p>For each element in the input sequence, each layer computes the following function:</p>
+<p>$$<br>i_t = \sigma(W_{ii} x_t + b_{ii} + W_{hi} h_{(t-1)} + b_{hi}) \<br>f_t = \sigma(W_{if} x_t + b_{if} + W_{hf} h_{(t-1)} + b_{hf}) \<br>g_t = \tanh(W_{ig} x_t + b_{ig} + W_{hg} h_{(t-1)} + b_{hg}) \<br>o_t = \sigma(W_{io} x_t + b_{io} + W_{ho} h_{(t-1)} + b_{ho}) \<br>c_t = f_t c_{(t-1)} + i_t g_t \<br>h_t = o_t \tanh(c_t)<br>$$<br>  其中  $h_t$是 t 时刻的隐层状态, $c_t$ 是 t 时刻的 cell state, $x_t$ 是 t 时刻的输入, $h(t−1)$ is the hidden state of the previous layer at time t-1 or the initial hidden state at time 0, and $i_t, f_t, g_t, o_t$ are the input, forget, cell, and output gates, respectively. $σ$ is the sigmoid function.</p>
+<p>| Parameters: | </p>
+<ul>
+<li><strong>input_size</strong> – The number of expected features in the input x</li>
+<li><strong>hidden_size</strong> – The number of features in the hidden state h</li>
+<li><strong>num_layers</strong> – Number of recurrent layers.例如 setting <code>num_layers=2</code> would mean stacking two LSTMs together to form a stacked LSTM, 第二个 LSTM 接受第一个 LSTM 的输出并计算最终结果. Default: 1</li>
+<li><strong>bias</strong> – If <code>False</code>, then the layer does not use bias weights b_ih and b_hh. Default: <code>True</code></li>
+<li><strong>batch_first</strong> – If <code>True</code>, then the input and output tensors are provided as (batch, seq, feature). Default: <code>False</code></li>
+<li><strong>dropout</strong> – If non-zero, introduces a Dropout layer on the outputs of each LSTM layer except the last layer, with dropout probability equal to <code>dropout</code>. Default: 0</li>
+<li><p><strong>bidirectional</strong> – If <code>True</code>, becomes a bidirectional LSTM. Default: <code>False</code></p>
+<p>|</p>
+</li>
+</ul>
+<p>Inputs: input, (h_0, c_0)</p>
+<ul>
+<li><p><strong>input</strong> of shape (seq_len, batch, input_size): tensor containing the features of the input sequence. The input can also be a packed variable length sequence. See <a href="https://pytorch.org/docs/stable/nn.html?highlight=lstm#torch.nn.utils.rnn.pack_padded_sequence" title="torch.nn.utils.rnn.pack_padded_sequence" target="_blank" rel="noopener"><code>torch.nn.utils.rnn.pack_padded_sequence()</code></a> or <a href="https://pytorch.org/docs/stable/nn.html?highlight=lstm#torch.nn.utils.rnn.pack_sequence" title="torch.nn.utils.rnn.pack_sequence" target="_blank" rel="noopener"><code>torch.nn.utils.rnn.pack_sequence()</code></a> for details.</p>
+</li>
+<li><p><strong>h_0</strong> of shape (num_layers * num_directions, batch, hidden_size): tensor containing the initial hidden state for each element in the batch.</p>
+</li>
+<li><p><strong>c_0</strong> of shape (num_layers * num_directions, batch, hidden_size): tensor containing the initial cell state for each element in the batch.</p>
+<p>If (h_0, c_0) is not provided, both <strong>h_0</strong> and <strong>c_0</strong> default to zero.</p>
+</li>
+</ul>
+<p>Outputs: output, (h_n, c_n)</p>
+<ul>
+<li><p><strong>output</strong> of shape (seq_len, batch, num_directions * hidden_size): tensor containing the output features (h_t) from the last layer of the LSTM, for each t. If a <a href="https://pytorch.org/docs/stable/nn.html?highlight=lstm#torch.nn.utils.rnn.PackedSequence" title="torch.nn.utils.rnn.PackedSequence" target="_blank" rel="noopener"><code>torch.nn.utils.rnn.PackedSequence</code></a> has been given as the input, the output will also be a packed sequence.</p>
+<p>For the unpacked case, the directions can be separated using <code>output.view(seq_len, batch, num_directions, hidden_size)</code>, with forward and backward being direction 0 and 1 respectively. Similarly, the directions can be separated in the packed case.</p>
+</li>
+<li><p><strong>h_n</strong> of shape (num_layers * num_directions, batch, hidden_size): tensor containing the hidden state for t = seq_len.</p>
+<p>Like <em>output</em>, the layers can be separated using<code>h_n.view(num_layers, num_directions, batch, hidden_size)</code> and similarly for _c_n_.</p>
+</li>
+<li><p><strong>c_n</strong> (num_layers * num_directions, batch, hidden_size): tensor containing the cell state for t = seq_len</p>
+</li>
+</ul>
+<p>| Variables: | </p>
+<ul>
+<li><strong>weight_ih_l[k]</strong> – the learnable input-hidden weights of the kth layer(W_ii|W_if|W_ig|W_io), of shape (4*hidden_size x input_size)</li>
+<li><strong>weight_hh_l[k]</strong> – the learnable hidden-hidden weights of the kth layer(W_hi|W_hf|W_hg|W_ho), of shape (4*hidden_size x hidden_size)</li>
+<li><strong>bias_ih_l[k]</strong> – the learnable input-hidden bias of the kth layer (b_ii|b_if|b_ig|b_io), of shape (4*hidden_size)</li>
+<li><p><strong>bias_hh_l[k]</strong> – the learnable hidden-hidden bias of the kth layer(b_hi|b_hf|b_hg|b_ho), of shape (4*hidden_size)</p>
+<p>|</p>
+</li>
+</ul>
+<p>Examples:<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>rnn = nn.LSTM(<span class="number">10</span>, <span class="number">20</span>, <span class="number">2</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>input = torch.randn(<span class="number">5</span>, <span class="number">3</span>, <span class="number">10</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>h0 = torch.randn(<span class="number">2</span>, <span class="number">3</span>, <span class="number">20</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c0 = torch.randn(<span class="number">2</span>, <span class="number">3</span>, <span class="number">20</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>output, (hn, cn) = rnn(input, (h0, c0))</span><br></pre></td></tr></table></figure></p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">George</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://bzj.life/2018/08/12/LSTM_pytorch/">http://bzj.life/2018/08/12/LSTM_pytorch/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://bzj.life">画手乔治</a>！</span></div></div><div class="post-meta__tag-list"></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2018/08/15/python 笔记/"><i class="fa fa-chevron-left">  </i><span>python笔记，摘自《python 基础教程》</span></a></div><div class="next-post pull-right"><a href="/2018/08/08/Untitled/"><span></span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2018 By George</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file-o"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="/js/third-party/anime.min.js"></script><script src="/js/third-party/jquery.min.js"></script><script src="/js/third-party/jquery.fancybox.min.js"></script><script src="/js/third-party/velocity.min.js"></script><script src="/js/third-party/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.5.6"></script><script src="/js/fancybox.js?version=1.5.6"></script><script src="/js/sidebar.js?version=1.5.6"></script><script src="/js/copy.js?version=1.5.6"></script><script src="/js/fireworks.js?version=1.5.6"></script><script src="/js/transition.js?version=1.5.6"></script><script src="/js/scroll.js?version=1.5.6"></script><script src="/js/head.js?version=1.5.6"></script></body></html>
